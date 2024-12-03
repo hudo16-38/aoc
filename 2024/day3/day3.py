@@ -17,7 +17,7 @@ def multiply(command: str) -> int:
 def sum_commands(commands: list[str]) -> int:
     return sum(multiply(command.group(0)) for command in commands)
 
-def find_conditiones(text: str) -> list[re.Match]:
+def find_conditions(text: str) -> list[re.Match]:
     control_pattern = r"(do\(\)|don\'t\(\))"
     return list(re.finditer(control_pattern, text))
 
@@ -25,9 +25,9 @@ def sum_conditioned_commands(text: str) -> int:
     last_condition = True
     s = 0
 
-    conditiones = find_conditiones(text)
+    conditions = find_conditions(text)
     commands = parse_commands(text)
-    tokens = conditiones + commands
+    tokens = conditions + commands
     tokens.sort(key = lambda x: x.span())
 
     for token in tokens:
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     ##################-PART2-######################
     text = load_input("test_input.txt")
     #print(text)
-    conditiones = find_conditiones(text)
+    conditions = find_conditions(text)
     #print(conditiones)
     s = sum_conditioned_commands(text)
     print(s)
