@@ -2,5 +2,6 @@
 
 ## 2025
 
-1. Day 1: [Python solution](./2025/day1.py)
+1. Day 1: [Python solution](./2025/day1/day1.py)
+2. Day 2: [Python solution](./2025/day2/day2.py)
    
